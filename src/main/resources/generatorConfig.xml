@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- MyBatis自动生成工具: 首先在eclipse的marketplace中下载插件 MyBatis Generator, 然后在此文件上右键Run 
+	As->MyBatis Generator -->
+<generatorConfiguration>
+	<context id="my" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressDate" value="false" />
+			<!-- 是否去除自动生成的注释 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库连接信息 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/spbdemo" userId="root"
+			password="1234" />
+		<!-- 生成实体类 -->
+		<javaModelGenerator
+			targetPackage="com.example.demo.entity"
+			targetProject="HelloSpringBoot/src/main/java">
+			<!-- enableSubPackages: 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的字段的值trim空格 -->
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+		<!-- 生成mapper映射文件 -->
+		<sqlMapGenerator
+			targetPackage="mappers"
+			targetProject="HelloSpringBoot/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成持久层接口 -->
+		<javaClientGenerator
+			targetPackage="com.example.demo.mapper"
+			targetProject="HelloSpringBoot/src/main/java" type="XMLMAPPER">
+			<!-- enableSubPackages: 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- 指定数据库表 -->
+		<table tableName="t_user" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+
+	</context>
+</generatorConfiguration>
