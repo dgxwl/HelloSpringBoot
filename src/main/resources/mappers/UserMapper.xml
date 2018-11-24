@@ -83,4 +83,8 @@
 		password = #{password,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	
+	<select id="findAll" resultType="com.example.demo.entity.User">
+		SELECT * FROM t_user
+	</select>
 </mapper>
