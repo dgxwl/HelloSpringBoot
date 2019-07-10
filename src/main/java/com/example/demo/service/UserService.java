@@ -10,11 +10,12 @@ import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
 	
 	@Autowired
 	UserMapper userMapper;
 
+	@Override
 	public ResponseResult<User> register(User user) {
 		User u = userMapper.findByUsername(user.getUsername());
 		if (u != null) {
@@ -25,6 +26,7 @@ public class UserService {
 		}
 	}
 	
+	@Override
 	public List<User> findAll() {
 		return userMapper.findAll();
 	}

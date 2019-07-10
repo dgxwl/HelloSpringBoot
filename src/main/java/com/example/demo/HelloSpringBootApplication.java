@@ -2,15 +2,12 @@ package com.example.demo;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//@SpringBootApplication
-@EnableAutoConfiguration
-@EnableTransactionManagement
-@ComponentScan({"com.example.demo.service", "com.example.demo.controller"})
-@MapperScan("com.example.demo.mapper")
+@SpringBootApplication
+@EnableTransactionManagement  //使用事务
+@MapperScan("com.example.demo.mapper")  //扫描mapper
 public class HelloSpringBootApplication {
 
 	public static void main(String[] args) {
